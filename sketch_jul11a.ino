@@ -40,8 +40,12 @@ void parseAndExecute(const char* line) {
   } else if (startsWith(line, "DEFAULT_DELAY ")) {
     // Advanced feature, can be skipped
     return;
-  } else if (startsWith(line, "STRING ")) {
-    Keyboard.print(line + 7);
+  }
+  else if (startsWith(line, "STRING")) {
+    // Move pointer after "STRING"
+    const char* p = line + 6; // 6 = strlen("STRING")
+    while (*p == ' ') p++;    // skip ALL spaces after STRING
+    Keyboard.print(p);
   } else if (strcmp(line, "ENTER") == 0) {
     Keyboard.write(KEY_RETURN);
   } else if (strcmp(line, "TAB") == 0) {
