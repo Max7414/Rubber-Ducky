@@ -115,6 +115,6 @@ bool startsWith(const char* line, const char* prefix) {
 void sendCombo(uint8_t modifier, uint8_t key) {
   Keyboard.press(modifier);
   Keyboard.press(key);
-  delay(150);
+  delay(130);
   Keyboard.releaseAll();
 }
